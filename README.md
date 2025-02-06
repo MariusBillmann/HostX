@@ -15,7 +15,7 @@
     <a href="#roadmap">
     	<img src="https://img.shields.io/badge/%E2%9C%A8-Roadmap%20-0a0a0a.svg?style=flat&colorA=0a0a0a" alt="roadmap" />
     </a>
-    <a href="https://github.com/MariusBillmann/donations">
+    <a href="https://github.com/MariusBillmann/MariusBillmann/blob/main/DONATIONS.md">
     	<img src="https://img.shields.io/badge/%E2%9C%A8-Donate%20-0a0a0a.svg?style=flat&colorA=0a0a0a" alt="donate" />
     </a>
   </p>
@@ -51,4 +51,4 @@ Soon
 
 ## Feel free to donate
 
-<a href="https://github.com/MariusBillmann/donations"><img src="https://github.com/MariusBillmann/donations/blob/main/images/badge.svg" alt="donate" /></a>
+<a href="https://github.com/MariusBillmann/MariusBillmann/blob/main/DONATIONS.md"><img src="https://github.com/MariusBillmann/MariusBillmann/blob/main/images/badge.svg" alt="donate" /></a>
