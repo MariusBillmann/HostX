@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HostX</title>
+    <script src="xlsx.full.min.js"></script>
+    <script src="popup.js"></script>
+</head>
+<body>
+    <style>
+        :root {
+            --width: 500px;
+            --height: 365px;
+            --highlight: #FB9943;
+            --fail: #F01E1E;
+            --success: #44CF29;
+            --backgroundPrimary: #0E0F11;
+            --backgroundSecondary: #1A1E21;
+            --backgroundField: #25282B;
+            --fontPrimary: #FFFFFF;
+            --fontSecondary: #B8BABA;
+            --mainBordeRadius: 3px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            width: var(--width);
+            height: var(--height);
+            background-color: var(--backgroundPrimary);
+            color: var(--fontPrimary);
+            font-family: 'Source Code Pro', monospace;
+        }
+        .container {
+            margin: 10px;
+            position: relative;
+            width: calc(100% - 20px);
+            height: calc(100% - 10px);
+        }
+        .header {
+            text-align: center;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .heading {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--highlight);
+            text-align: center;
+        }
+        .searchbar {
+            width: 100%;
+            display: inline-flex;
+        }
+        .searchbar input[type="text"] {
+            background-color: var(--backgroundSecondary);
+            color: var(--fontPrimary);
+            outline: 0;
+            border: 0;
+            padding: 8px 8px;
+            border-radius: var(--mainBordeRadius);
+            width: 100%;
+        }
+        .searchbar input[type="submit"] {
+            background-color: var(--backgroundSecondary);
+            color: var(--fontSecondary);
+            outline: 0;
+            border: 0;
+            padding: 8px 8px;
+            border-radius: var(--mainBordeRadius);
+            margin-left: 10px;
+        }
+        .searchbar input[type="submit"]:hover {
+            color: var(--fontPrimary);
+            cursor: pointer;
+        }
+        .searchbar input[type="submit"].fail:hover {
+            color: var(--fail);
+        }
+        .footer {
+            width: 100%;
+            color: var(--fontSecondary);
+            position: absolute;
+            bottom: 0;
+        }
+        .footer table {
+            width: 100%;
+        }
+        .footer td:last-child {
+            text-align: right;
+        }
+        .footer td, .footer th {
+            padding-bottom: 0;
+        }
+        #results {
+            overflow-y: scroll;
+            overflow-x: hidden;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: calc(100% - 120px);
+            margin-left: 10px;
+        }
+        #results::-webkit-scrollbar {
+            width: 5px;
+            border-left: 5px var(--backgroundPrimary) solid;
+        }
+        #results::-webkit-scrollbar-track {
+            background: var(--backgroundSecondary);
+        }
+        #results::-webkit-scrollbar-thumb {
+            background: var(--highlight);
+            border-radius: 12px;
+        }
+        #results::-webkit-scrollbar-thumb:hover {
+            cursor: pointer;
+        }
+        #results table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            border-color: none;
+        }
+        #results table {
+            border-spacing: 10px;
+        }
+        #results th {
+            text-align: left;
+            color: var(--fontPrimary);
+        }
+        #results td {
+            display: flex;
+            justify-content: right;
+        }
+        #results td:last-child {
+            text-align: right;
+            color: var(--fontSecondary);
+        }
+        #results th, td {
+            border: none;
+            padding-bottom: 10px;
+        }
+        #results hr {
+            border: none;
+            margin: 20px 0;
+            border: 1px solid var(--highlight);
+        }
+        #results p {
+            background: var(--backgroundSecondary);
+            border-radius: var(--mainBordeRadius);
+            width: fit-content;
+            padding: 4px 6px;
+        }
+    </style>
+
+    <div class="container">
+
+        <div class="header">
+            <h4 class="heading" id="app_name">HostX</h4>
+        </div>
+
+        <div class="searchbar">
+            <input type="text" id="searchInput" placeholder="Enter any keyword to search...">
+            <input type="submit" id="searchBtn" value="Search">
+            <input type="submit" id="clearBtn" class="fail" value="Reset">
+        </div>
+
+        <div id="results"></div>
+
+        <div class="footer">
+            <table>
+                <tr>
+                    <td id="app_version">Version: </td>
+                    <td id="app_author">Author: </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    
+</body>
+</html>
