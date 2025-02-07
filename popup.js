@@ -38,6 +38,22 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     }
 
+    document.getElementById("settingsToggle").addEventListener("click", function () {
+        toggleSettings()
+    });
+
+    function toggleSettings() {
+        const settings = document.getElementById("settings");
+        const results = document.getElementById("results");
+        if(settings.style.display === "block") {
+            settings.style.display = "none";
+            results.style.display = "flex";
+        } else {
+            settings.style.display = "block";
+            results.style.display = "none";
+        }
+    }
+
     function toggleTheme() {
         chrome.storage.local.get(["theme"], function (result) {
             const newTheme = result.theme === "dark" ? "light" : "dark";
@@ -49,13 +65,53 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function applyTheme(theme) {
         document.documentElement.setAttribute("data-theme", theme);
+        document.getElementById("lightTheme").checked = (theme === "light");
+        document.getElementById("darkTheme").checked = (theme === "dark");
     }
 
     chrome.storage.local.get(["theme"], function (result) {
-        applyTheme(result.theme || "dark");
+        const currentTheme = result.theme || "dark";
+        applyTheme(currentTheme);
     });
 
-    document.getElementById("themeToggle").addEventListener("click", toggleTheme);
+    document.querySelectorAll('input[name="theme"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            const newTheme = this.value;
+            chrome.storage.local.set({ theme: newTheme }, function() {
+                applyTheme(newTheme);
+            });
+        });
+    });
+
+    function toggleThemeColor() {
+        const newThemeColor = document.getElementById("newThemeColor").value;
+
+        const isValidHex = /^#?([0-9A-F]{3}){1,2}$/i.test(newThemeColor);
+        
+        if (!isValidHex) {
+            const msg = document.getElementById("theme-color-control-msg");
+            msg.textContent = "Please enter a valid HEX color (e.g. #FF0000 or #F00)";
+            msg.style.color = "var(--fail)";
+            return;
+        }
+
+        const formattedColor = newThemeColor.startsWith('#') ? newThemeColor : '#' + newThemeColor;
+        
+        chrome.storage.local.set({ themecolor: formattedColor }, function() {
+            applyThemeColor(formattedColor);
+        });
+    }
+
+    function applyThemeColor(themecolor) {
+        document.documentElement.style.setProperty('--themecolor', themecolor);
+    }
+
+    chrome.storage.local.get(["themecolor"], function(result) {
+        const savedColor = result.themecolor || '#FB9943';
+        applyThemeColor(savedColor);
+    });
+
+    document.getElementById("themeColorToggle").addEventListener("click", toggleThemeColor);
 
     loadExcelFile();
 
@@ -71,6 +127,8 @@ document.addEventListener("DOMContentLoaded", function() {
         searchTerm = document.getElementById("searchInput").value.toLowerCase();
         if (searchTerm) {
             searchForText(searchTerm);
+            document.getElementById("settings").style.display = "none";
+            document.getElementById("results").style.display = "flex";
         } else {
             const resultsDiv = document.getElementById("results");
             resultsDiv.innerHTML = "";
@@ -82,6 +140,8 @@ document.addEventListener("DOMContentLoaded", function() {
             searchTerm = document.getElementById("searchInput").value.toLowerCase();
             if (searchTerm) {
                 searchForText(searchTerm);
+                document.getElementById("settings").style.display = "none";
+                document.getElementById("results").style.display = "flex";
             } else {
                 const resultsDiv = document.getElementById("results");
                 resultsDiv.innerHTML = "";
@@ -93,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function() {
         searchTerm = document.getElementById("searchInput").value.toLowerCase();
         const searchBtn = document.getElementById("searchBtn");
         if (searchTerm) {
-            searchBtn.style.color = "var(--highlight)";
+            searchBtn.style.color = "var(--themecolor)";
         } else {
             searchBtn.style.color = "var(--fontSecondary)";
         }
@@ -105,6 +165,14 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("results").innerHTML = "";
         const searchBtn = document.getElementById("searchBtn");
         searchBtn.style.color = "var(--fontSecondary)";
+    });
+
+    document.getElementById("resetSettings").addEventListener("click", function () {
+        chrome.storage.local.clear();
+        applyTheme("dark");
+        applyThemeColor("#FB9943");
+        document.getElementById("newThemeColor").value = "";
+        document.getElementById("theme-color-control-msg").textContent = "";
     });
 
     function searchForText(searchTerm) {
