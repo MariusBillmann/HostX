@@ -45,7 +45,8 @@ Soon
 
 # 🚀 Roadmap
 
- - [ ] Search by Enter-Key
+ - [x] Search by Enter-Key
+ - [x] Add error message if the .xlsx file was not loaded 
 
 ![](https://i.imgur.com/waxVImv.png)
 
