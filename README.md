@@ -23,6 +23,12 @@
 
 ![](https://i.imgur.com/waxVImv.png)
 
+<p align="center">
+  <a><img src="screenshots/Screenshot_1.png" height="420"></a>
+</p>
+
+![](https://i.imgur.com/waxVImv.png)
+
 # 📥 Installation
 
 1. Clone the repository
