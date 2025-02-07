@@ -52,6 +52,9 @@ document.addEventListener("DOMContentLoaded", function() {
         searchTerm = document.getElementById("searchInput").value.toLowerCase();
         if (searchTerm) {
             searchForText(searchTerm);
+        } else {
+            const resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "";
         }
     });
 
@@ -60,7 +63,20 @@ document.addEventListener("DOMContentLoaded", function() {
             searchTerm = document.getElementById("searchInput").value.toLowerCase();
             if (searchTerm) {
                 searchForText(searchTerm);
+            } else {
+                const resultsDiv = document.getElementById("results");
+                resultsDiv.innerHTML = "";
             }
+        }
+    });
+
+    document.getElementById("searchInput").addEventListener("input", function () {
+        searchTerm = document.getElementById("searchInput").value.toLowerCase();
+        const searchBtn = document.getElementById("searchBtn");
+        if (searchTerm) {
+            searchBtn.style.color = "var(--highlight)";
+        } else {
+            searchBtn.style.color = "var(--fontSecondary)";
         }
     });
 
