@@ -26,12 +26,19 @@
             margin: 0;
             padding: 0;
         }
+        [data-theme="light"] {
+            --backgroundPrimary: #FFFFFF;
+            --backgroundSecondary: #E4E4E5;
+            --fontPrimary: #000000;
+            --fontSecondary: #828384;
+        }
         body {
             width: var(--width);
             height: var(--height);
             background-color: var(--backgroundPrimary);
             color: var(--fontPrimary);
             font-family: 'Source Code Pro', monospace;
+            transition: background-color 0.3s, color 0.3s;
         }
         .container {
             margin: 10px;
@@ -55,6 +62,23 @@
         .searchbar {
             width: 100%;
             display: inline-flex;
+        }
+        .searchbar button[type="submit"] {
+            background-color: var(--backgroundSecondary);
+            color: var(--fontSecondary);
+            outline: 0;
+            border: 0;
+            padding: 8px 8px;
+            border-radius: var(--mainBordeRadius);
+            margin-right: 10px;
+        }
+        .searchbar button[type="submit"]:hover {
+            cursor: pointer;
+        }
+        .searchbar button[type="submit"] svg {
+            width: 15px;
+            height: 15px;
+            fill: var(--fontSecondary);
         }
         .searchbar input[type="text"] {
             background-color: var(--backgroundSecondary);
@@ -168,6 +192,7 @@
         </div>
 
         <div class="searchbar">
+            <button type="submit" aria-label="themeToggle" id="themeToggle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M448 256c0-106-86-192-192-192l0 384c106 0 192-86 192-192zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg></button>
             <input type="text" id="searchInput" placeholder="Enter any keyword to search...">
             <input type="submit" id="searchBtn" value="Search">
             <input type="submit" id="clearBtn" class="fail" value="Reset">

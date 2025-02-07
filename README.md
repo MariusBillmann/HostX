@@ -49,6 +49,7 @@ Soon
  - [x] Add error message if the .xlsx file was not found
  - [x] Modify "No entry found" message orientation
  - [x] Rework application icon
+ - [x] Theme switch light / dark
  - [ ] Implement settings button for additional options
  - [ ] Implement `.xlsx` file convertion
 

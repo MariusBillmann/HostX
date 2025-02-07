@@ -38,6 +38,25 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     }
 
+    function toggleTheme() {
+        chrome.storage.local.get(["theme"], function (result) {
+            const newTheme = result.theme === "dark" ? "light" : "dark";
+            chrome.storage.local.set({ theme: newTheme }, function () {
+                applyTheme(newTheme);
+            });
+        });
+    }
+
+    function applyTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+    }
+
+    chrome.storage.local.get(["theme"], function (result) {
+        applyTheme(result.theme || "dark");
+    });
+
+    document.getElementById("themeToggle").addEventListener("click", toggleTheme);
+
     loadExcelFile();
 
     chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
