@@ -84,6 +84,8 @@ document.addEventListener("DOMContentLoaded", function() {
         searchTerm = "";
         document.getElementById("searchInput").value = "";
         document.getElementById("results").innerHTML = "";
+        const searchBtn = document.getElementById("searchBtn");
+        searchBtn.style.color = "var(--fontSecondary)";
     });
 
     function searchForText(searchTerm) {
