@@ -3,7 +3,7 @@ let selectedText = '';
 chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.create({
         id: "searchText",
-        title: "Search with HostX",
+        title: "Lookup with SearchX",
         contexts: ["selection"]
     });
 });

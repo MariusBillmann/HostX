@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HostX</title>
+    <title>SearchX</title>
     <script src="xlsx.full.min.js"></script>
     <script src="popup.js"></script>
 </head>
@@ -104,6 +104,11 @@
             height: calc(100% - 120px);
             margin-left: 10px;
         }
+        #results.error-state {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         #results::-webkit-scrollbar {
             width: 5px;
             border-left: 5px var(--backgroundPrimary) solid;
@@ -159,7 +164,7 @@
     <div class="container">
 
         <div class="header">
-            <h4 class="heading" id="app_name">HostX</h4>
+            <h4 class="heading" id="app_name">SearchX</h4>
         </div>
 
         <div class="searchbar">

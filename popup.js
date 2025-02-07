@@ -25,7 +25,17 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 });
             })
-            .catch(error => console.error("Error while loading file:", error));
+            .catch(error => {
+                console.log("Error while loading file!");
+                const resultsDiv = document.getElementById("results");
+                resultsDiv.innerHTML = ""; // Clear any results
+                resultsDiv.classList.add("error-state");
+                const p = document.createElement("p");
+                p.textContent = "Couldn't find 'data.xlsx'";
+                p.style.color = "var(--fail)";
+                p.style.backgroundColor = "rgba(240, 30, 30, 0.1)";
+                resultsDiv.appendChild(p);
+            });
     }
 
     loadExcelFile();
@@ -45,6 +55,15 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+    document.getElementById("searchInput").addEventListener("keydown", function (e) {
+        if (e.code === "Enter") {
+            searchTerm = document.getElementById("searchInput").value.toLowerCase();
+            if (searchTerm) {
+                searchForText(searchTerm);
+            }
+        }
+    });
+
     document.getElementById("clearBtn").addEventListener("click", function () {
         searchTerm = "";
         document.getElementById("searchInput").value = "";
@@ -57,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         const resultsDiv = document.getElementById("results");
         resultsDiv.innerHTML = "";
+        resultsDiv.classList.remove("error-state");
 
         searchTerm = searchTerm.toLowerCase().trim();
 
@@ -72,6 +92,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("Found results:", results);
 
         if (results.length === 0) {
+            resultsDiv.classList.add("error-state");
             resultsDiv.innerHTML = "<p style='color: var(--fail); background-color: rgba(240, 30, 30, 0.1);'>No results found.</p>";
             return;
         }

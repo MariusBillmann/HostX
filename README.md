@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://github.com/MariusBillmann/HostX"><img src="icons/HostX_Icon.png" height="128"></a>
-  <h2 align="center"><a href="https://github.com/MariusBillmann/HostX">HostX</a></h2>
+  <a href="https://github.com/MariusBillmann/SearchX"><img src="icons/SearchX_Icon.png" height="128"></a>
+  <h2 align="center"><a href="https://github.com/MariusBillmann/SearchX">SearchX</a></h2>
   <p align="center">A Chrome extension for quickly searching and retrieving information from an Excel database. Perfect for IT administrators to look up system details.<p>
   <p align="center">
     <a href="#installation">
@@ -46,7 +46,11 @@ Soon
 # 🚀 Roadmap
 
  - [x] Search by Enter-Key
- - [x] Add error message if the .xlsx file was not loaded 
+ - [x] Add error message if the .xlsx file was not found
+ - [x] Modify "No entry found" message orientation
+ - [x] Rework application icon
+ - [ ] Implement settings button for additional options
+ - [ ] Implement `.xlsx` file convertion
 
 ![](https://i.imgur.com/waxVImv.png)
 

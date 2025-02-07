@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
-    "name": "HostX",
-    "version": "1.0",
+    "name": "SearchX",
+    "version": "1.1",
     "description": "A Chrome extension for quickly searching and retrieving information from an Excel database. Perfect for IT administrators to look up system details.",
     "author": "Marius Billmann",
     "icons": {
