@@ -24,15 +24,15 @@
 ![](https://i.imgur.com/waxVImv.png)
 
 <p align="center">
-  <a><img src="screenshots/Screenshot_1.png" width="100%" height="auto"></a>
+  <a><img src="screenshots/Screenshot_v2.2_1.png" width="100%" height="auto"></a>
 </p>
 
 <p align="center">
-  <a><img src="screenshots/Screenshot_2.png" width="100%" height="auto"></a>
+  <a><img src="screenshots/Screenshot_v2.2_2.png" width="100%" height="auto"></a>
 </p>
 
 <p align="center">
-  <a><img src="screenshots/Screenshot_3.png" width="100%" height="auto"></a>
+  <a><img src="screenshots/Screenshot_v2.2_3.png" width="100%" height="auto"></a>
 </p>
 
 ![](https://i.imgur.com/waxVImv.png)
@@ -56,7 +56,7 @@
 # 🌟 Features
 
 <p align="center">
-  <a><img src="screenshots/Features_1.png" width="100%" height="auto"></a>
+  <a><img src="screenshots/Features_v2.2_1" width="100%" height="auto"></a>
 </p>
 
 # 🚀 Roadmap
