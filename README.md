@@ -24,10 +24,6 @@
 ![](https://i.imgur.com/waxVImv.png)
 
 <p align="center">
-  <a><img src="screenshots/Screenshot_1.png" width="100%" height="auto"></a>
-</p>
-
-<p align="center">
   <a><img src="screenshots/Screenshot_2.png" width="100%" height="auto"></a>
 </p>
 
