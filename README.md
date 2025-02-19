@@ -66,7 +66,7 @@
  - [x] Modify "No entry found" message orientation
  - [x] Rework application icon
  - [x] Theme switch light / dark
- - [ ] Implement settings button for additional options
+ - [x] Implement settings button for additional options
  - [ ] Implement `.xlsx` file convertion
 
 ![](https://i.imgur.com/waxVImv.png)
