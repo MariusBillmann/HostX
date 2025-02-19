@@ -45,12 +45,12 @@ document.addEventListener("DOMContentLoaded", function() {
     function toggleSettings() {
         const settings = document.getElementById("settings");
         const results = document.getElementById("results");
-        if(settings.style.display === "block") {
-            settings.style.display = "none";
-            results.style.display = "flex";
+        if(settings.classList.contains("hidden")) {
+            settings.classList.remove("hidden");
+            results.classList.add("hidden");
         } else {
-            settings.style.display = "block";
-            results.style.display = "none";
+            settings.classList.add("hidden");
+            results.classList.remove("hidden");
         }
     }
 
@@ -125,12 +125,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById("searchBtn").addEventListener("click", function () {
         searchTerm = document.getElementById("searchInput").value.toLowerCase();
+        const resultsDiv = document.getElementById("results");
         if (searchTerm) {
+            document.getElementById("settings").classList.add("hidden");
+            document.getElementById("results").classList.remove("hidden");
+            resultsDiv.classList.remove("error-state");
             searchForText(searchTerm);
-            document.getElementById("settings").style.display = "none";
-            document.getElementById("results").style.display = "flex";
         } else {
-            const resultsDiv = document.getElementById("results");
             resultsDiv.innerHTML = "";
         }
     });
@@ -138,12 +139,13 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("searchInput").addEventListener("keydown", function (e) {
         if (e.code === "Enter") {
             searchTerm = document.getElementById("searchInput").value.toLowerCase();
+            const resultsDiv = document.getElementById("results");
             if (searchTerm) {
+                document.getElementById("settings").classList.add("hidden");
+                document.getElementById("results").classList.remove("hidden");
+                resultsDiv.classList.remove("error-state");
                 searchForText(searchTerm);
-                document.getElementById("settings").style.display = "none";
-                document.getElementById("results").style.display = "flex";
             } else {
-                const resultsDiv = document.getElementById("results");
                 resultsDiv.innerHTML = "";
             }
         }
