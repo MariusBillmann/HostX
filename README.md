@@ -56,7 +56,7 @@
 # 🌟 Features
 
 <p align="center">
-  <a><img src="screenshots/Features_v2.2_1" width="100%" height="auto"></a>
+  <a><img src="screenshots/Features_v2.2_1.png" width="100%" height="auto"></a>
 </p>
 
 # 🚀 Roadmap
